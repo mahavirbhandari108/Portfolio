@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahavir Bhandari - Portfolio</title>
+  <style>
+    :root {
+      --primary-bg-color: #44494f;
+      --secondary-bg-color: #ECF0F1;
+      --text-color-light: #FFFFFF;
+      --text-color-dark: #34495E;
+      --accent-color: #4c414f;
+      --hover-color: #E67E22;
+    }
+
+    body.dark-mode {
+      --primary-bg-color: #1c1e22;
+      --secondary-bg-color: #121417;
+      --text-color-light: #ebe4e4;
+      --text-color-dark: #dddddd;
+      --accent-color: #e67e22;
+      --hover-color: #26ddea;
+    }
+
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--secondary-bg-color);
+      color: var(--text-color-dark);
+      line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .toggle-container {
+      text-align: right;
+      padding: 10px 20px;
+    }
+
+    .toggle-button {
+      padding: 6px 12px;
+      background-color: var(--accent-color);
+      color: var(--text-color-light);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9em;
+      transition: background-color 0.3s ease;
+    }
+
+    .toggle-button:hover {
+      background-color: var(--hover-color);
+    }
+
+    header {
+      background-color: var(--primary-bg-color);
+      text-align: center;
+      padding: 2.5em 0 2em;
+      border-bottom: 5px solid var(--accent-color);
+      animation: fadeInDown 1s ease-in-out forwards;
+      position: relative;
+      z-index: 1;
+    }
+
+
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.03); }
+    }
+
+    header h1 {
+      margin: 10px 0 5px;
+      font-size: 2.5em;
+      animation: glowText 2s ease-in-out infinite alternate;
+      position: relative;
+      z-index: 1;
+      color: var(--text-color-light);
+    }
+
+    @keyframes glowText {
+      0% {
+        text-shadow: 0 0 5px var(--hover-color), 0 0 10px var(--hover-color);
+      }
+      100% {
+        text-shadow: 0 0 15px var(--hover-color), 0 0 30px var(--hover-color);
+      }
+    }
+
+    header p {
+      font-size: 1.3em;
+      animation: fadeIn 2s ease-in-out forwards;
+      animation-fill-mode: forwards;
+      opacity: 0;
+      position: relative;
+      z-index: 1;
+      color: var(--text-color-light);
+      text-shadow: 0 0 5px var(--hover-color), 0 0 15px var(--hover-color);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    section {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 25px;
+      background-color: #fff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      animation: fadeIn 1s ease-in-out forwards;
+      animation-fill-mode: forwards;
+      opacity: 0;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-mode section {
+      background-color: #1f1f1f;
+      color: var(--text-color-dark);
+    }
+
+    .glow-border {
+      border: 2px solid var(--accent-color);
+      box-shadow: 0 0 5px var(--accent-color), 0 0 15px var(--accent-color), 0 0 30px var(--hover-color);
+      animation: glowPulse 2s infinite alternate;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    @keyframes glowPulse {
+      0% { box-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color); }
+      100% { box-shadow: 0 0 15px var(--accent-color), 0 0 25px var(--hover-color), 0 0 40px var(--hover-color); }
+    }
+
+    h2 {
+      color: var(--accent-color);
+      font-size: 2em;
+      margin-bottom: 15px;
+      text-align: center;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 10px;
+    }
+
+    h3 {
+      color: var(--text-color-dark);
+      font-size: 1.5em;
+      margin-top: 20px;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    section:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 25px rgba(32, 220, 202, 0.3);
+      transition: all 0.8s ease-in-out;
+    }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color 0.3s ease-in-out;
+    }
+
+    a:hover {
+      color: var(--hover-color);
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5em 0;
+      background-color: var(--primary-bg-color);
+      color: var(--text-color-light);
+      margin-top: 40px;
+      animation: fadeInUp 1s ease-in-out forwards;
+      animation-fill-mode: forwards;
+      opacity: 0;
+      transform: translateY(20px);
+      text-shadow: 0 0 15px var(--hover-color), 0 0 30px var(--hover-color);
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2em; }
+      header p { font-size: 1.1em; }
+      section { margin: 20px 15px; padding: 20px; }
+      h2 { font-size: 1.8em; }
+      h3 { font-size: 1.3em; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toggle-container">
+    <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+  </div>
+
+  <header>
+    <h1>Mahavir Bhandari</h1>
+    <p>Java Full Stack Developer</p>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <p> Welcome to my portfolio! I am an enthusiastic and detail-oriented Computer Engineering student with hands-on experience in Java Full Stack Development. I am skilled in building robust web applications using Java, Spring Boot, REST APIs, HTML, CSS, JavaScript, and modern frameworks. I am actively seeking an opportunity to contribute to innovative software solutions by leveraging strong problem-solving skills, full-stack development knowledge, and a commitment to continuous learning and collaboration.</p>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Core Java</li>
+      <li>Python</li><li>C++</li><li>GitHub</li>
+      <li>VS Code, Eclipse, Jupyter Notebook, Google Colab</li>
+      <li>Windows, Linux (Ubuntu)</li>
+      <li>Adaptability, Critical Thinking, Problem Solving</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Academic Projects</h2>
+    <h3>Speak Easy App</h3>
+    <ul>
+      <li>Inclusive Communication Platform for visually impaired</li>
+      <li>Tech Used: Whisper AI, Flutter, PWA, React, TS</li>
+    </ul>
+    <h3>Vardhaman Nx</h3>
+    <ul>
+      <li>E-commerce Clothing Store</li>
+      <li>Stack: HTML, CSS, JS</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Academic Details</h2>
+    <p>I pursued my B.E. from SNJB's KBJ COE, Nashik (2021-2025), CGPA: 8.31*.<br>
+    12th: M.G.M. Junior College, 92% (2021).<br>
+    10th: M.G.M. Clover Dale School, 75.80% (2019).</p>
+  </section>
+
+  <section>
+    <h2>Training and Certifications</h2>
+    <ul>
+      <li>Google: Advanced Data Analytics</li>
+      <li>Codsoft, Oasis: Web Dev Internship</li>
+      <li>Shree Sai Computers: Web Dev Internship</li>
+      <li> Published Research Paper in reputable International Journal (IJIRMPS) Publication</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <ul>
+      <li>Email: <a href="mailto:mahavirbhandari108@gmail.com">mahavirbhandari108@gmail.com</a></li>
+      <li>Phone: +91xxxxxxxx9844</li>
+      <li>LinkedIn: <a href="https://www.linkedin.com/in/mahavir-bhandari-b65156255/" target="_blank">LinkedIn</a></li>
+      <li>GitHub: <a href="https://github.com/mahavirbhandari108/-_-.1" target="_blank">GitHub</a></li>
+      <li>Resume: <a href="https://drive.google.com/file/d/1k032WmzCvdzNtIK5Gn2PX4w8LqfPV0Xd/view?usp=drive_link" download>Download Resume</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    &copy; 2023 Mahavir Bhandari. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+
+</body>
+</html>
